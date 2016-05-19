@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cheers For Beers 2017</title>
+  <link rel="shortcut icon" href="images/pint.ico"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.3.7.min.js"></script>
+  <script type="text/javascript" src="js/subscription.js"></script>
+  <script type="text/javascript" src="js/sqsconnection.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/C4B.css"/>
+  <noscript>This site requires javascript to work properly.  Please enable javascript in your browser.</noscript> 
+
+</head>
+<body ng-app="subscriptionForm">
+
+<center><img src="images/C4B_logo.jpg" alt="Cheers For Beers" style="width:350px;height:350px;"></center>
+<br>
+<div ng-controller="subscriptionController">
+	<center>
+		<fieldset class="fieldset-auto-width">
+		<legend class="title-colour"><b> Subscribe to Cheers for Beers information! </b></legend>
+			<form class="subscriptionForm" id="subscriptionForm" name="subscriptionForm">
+				<table>
+					
+					<tr><td class="tickets-label">Email Address: </td>
+					<td><input type="email" class="inputField" name="email" id="email" required placeholder=" Enter a valid email address" ng-model="user.email"/>
+					<input type="hidden" name="intent" id="intent" ng-model="user.intent" ng-init="user.intent='subscribe'"/></td></tr>	
+						
+					<tr><td colspan="2"><center><button type="submit" ng-click="updateSubscription(user)" ng-disabled="subscriptionForm.$invalid">Subscribe</button></center></td></tr>
+					<tr><td colspan="2"><center><div id="showResults" class="double-column"></div></center></td></tr>
+				</table>
+			</form>
+		</fieldset>
+	</center>
+</div>
+
+<br><br>
+
+	<center>
+		<fieldset class="fieldset-fixed-width">
+		<legend class="title-colour"><b> Cheers For Beers 2017 Information </b></legend>
+			<form>
+				<table>
+					
+					<tr><td class="label">When is it?</td>
+					<td class="info">Saturday 4th February 2017, 6:30pm  - 11:00pm</td></tr>	
+					
+					<tr><td colspan="2"><hr></td></tr>
+
+					<tr><td class="label">Where is it?</td>
+					<td class="info">East Leake village hall</td></tr>	
+					
+					<tr><td colspan="2"><hr></td></tr>
+					
+					<tr><td class="label">How much are tickets? </td>
+					<td class="info">Tickets cost &pound;6, which includes your first drink and a commemorative pint glass to keep</td></tr>	
+					
+					<tr><td colspan="2"><hr></td></tr>
+					
+					<tr><td class="label">How do I buy tickets? </td>
+					<td class="info">You can buy tickets from Lantern Lane school or the East Leake post office.  Alternatively, if you live in East Leake you can <a href="tickets.html"><b>fill in this form</b></a> and leave your details and we will bring some tickets to you!</td></tr>	
+					
+					<tr><td colspan="2"><hr></td></tr>
+
+					<tr><td class="label">What drinks are on offer? </td>
+					<td class="info">It's not just a beer festival; as well as some great local cask ales there will be cider and gin on offer so everyone's covered!<br>All drinks are just &pound;3 - that's for a pint of beer, a pint of cider, or gin and tonic.</td></tr>	
+
+					<tr><td colspan="2"><hr></td></tr>
+
+					<tr><td class="label">What about food? </td>
+					<td class="info">The beer festival is once again kindly sponsored by Pukka Pies, so the usual pukka pie and mushy peas for just &pound;2.50 is back!</td></tr>	
+
+					<tr><td colspan="2"><hr></td></tr>
+
+					<tr><td class="label">What else do I need to know? </td>
+					<td class="info">There is a great quiz which you can complete at your own pace, which costs &pound;5 per team and has traditionally been a highlight of the evening with a prize pot of half the quiz takings!</td></tr>	
+
+				</table>
+			</form>
+		</fieldset>
+	</center>
+<br>
+</body>
+</html>
+
+
+
+

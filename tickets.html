@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cheers For Beers 2017</title>
+  <link rel="shortcut icon" href="images/pint.ico"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.3.7.min.js"></script>
+  <script src="js/tickets.js"></script>
+  <script src="js/sqsconnection.js"></script>
+  <script src="js/calculateTotal.js"></script>
+  <script src="js/autocomplete.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2rqJjtsh4fIEJvWVksjt1fRSaxindLjk&libraries=places&callback=initAutocomplete" async defer></script>
+  <link rel="stylesheet" type="text/css" href="css/C4B.css"/>
+  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+  <noscript>This site requires javascript to work properly.  Please enable javascript in your browser.</noscript>  
+ 
+</head>
+<body ng-app="ticketsForm" onload="calculateTotal()">
+
+<center><a href="index.html"><img src="images/C4B_logo.jpg" alt="Cheers For Beers" style="width:350px;height:350px;"></a></center>
+<br>
+<div ng-controller="ticketsController">
+	<center>
+		<fieldset class="fieldset-auto-width">
+		<legend class="title-colour"><b>Save queuing, let us bring the tickets to you!</b></legend>
+			<form class="ticketsForm" id="ticketsForm" name="ticketsForm">
+				<table>
+					<tr><td class="tickets-label">Email Address: </td>
+					<td><input type="email" class="inputField" required placeholder=" Enter a valid email address" ng-model="user.email"  onblur="calculateTotal()"/></td></tr>	
+					
+					<tr><td colspan="2"><hr></td></tr>
+					
+					<tr><td class="tickets-label">Your Name: </td>
+					<td><input type="text" class="inputField" required placeholder=" Enter your name" ng-model="user.name"  onblur="calculateTotal()"/></td></tr>
+
+					<tr><td colspan="2"><hr></td></tr>
+					
+					<tr><td class="tickets-label">Your address:</td>
+					<td><div id="locationField">
+						<input id="autocomplete" required placeholder=" Start typing your address, it should autofill" type="text"></input>
+						    <table id="address">
+								<tr>
+								<td><input type="hidden" id="postal_code" name="postal_code" disabled="true"></input></td>
+								</tr>
+							</table>
+						</div></td></tr>
+				
+					<tr><td colspan="2"><hr></td></tr>
+					
+					<tr><td class="tickets-label">Phone Number: </td>
+					<td><input type="tel" class="inputField" title=' Phone Number (Format: 01234567890)' ng-model="user.phone" placeholder="Optional. A mobile number is best"  onblur="calculateTotal()"/></td></tr>
+					
+					<tr><td colspan="2"><hr></tr>
+						
+					<tr><td class="tickets-label">How many tickets <br>@ £6 would you like? </td>
+					<td><input type="number" min="1" max="20" value="0" name="tickets" id="tickets" ng-model="user.tickets" required onclick="calculateTotal()" onblur="calculateTotal()"/> </td></tr>
+			
+					<tr><td colspan="2"><hr></td></tr>
+					
+					<tr><td colspan="2"><div id="totalPrice" class="double-column"></div><input type="hidden" name="intent" id="intent" ng-model="user.intent" ng-init="user.intent='tickets'"/></td></tr>
+					<tr><td colspan="2"><center><button type="submit" ng-click="update(user)" ng-disabled="ticketsForm.$invalid">Request Ticket(s)</button></center></td></tr>
+					<tr><td colspan="2"><center><div id="showResults" class="double-column"></div></center></td></tr>
+				</table>
+			</form>
+		</fieldset>
+	</center>
+</div>
+<br>
+</body>
+</html>
+
+
+
+

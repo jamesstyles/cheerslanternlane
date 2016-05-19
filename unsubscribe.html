@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cheers 4 Beers 2017 - unsubscribe</title>
+  <link rel="shortcut icon" href="images/pint.ico"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.3.7.min.js"></script>
+  <script type="text/javascript" src="js/subscription.js"></script>
+  <script type="text/javascript" src="js/sqsconnection.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/C4B.css"/>
+  <noscript>This site requires javascript to work properly.  Please enable javascript in your browser.</noscript> 
+
+</head>
+<body ng-app="subscriptionForm" onload="getEmail()">
+
+<center><a href="index.html"><img src="images/C4B_logo.jpg" alt="Cheers For Beers" style="width:350px;height:350px;"></a></center>
+<br><br>
+
+<div ng-controller="subscriptionController">
+	<center>
+		<fieldset class="fieldset-auto-width">
+		<legend class="title-colour"><b> Unsubscribe from Cheers For Beers information </b></legend>
+			<form class="subscriptionForm" id="subscriptionForm" name="subscriptionForm">
+				<table>
+					
+					<tr><td class="tickets-label">Email Address: </td>
+					<td><input type="email" class="inputField" name="email" id="email" required placeholder=" Enter a valid email address" ng-model="user.email"/>
+					<input type="hidden" name="intent" id="intent" ng-model="user.intent" ng-init="user.intent='unsubscribe'"/></td></tr>	
+						
+					<tr><td colspan="2"><center><button type="submit" ng-click="updateSubscription(user)">Unsubscribe</button></center></td></tr>
+					<tr><td colspan="2"><center><div id="showResults" class="double-column"></div></center></td></tr>
+				</table>
+			</form>
+		</fieldset>
+	</center>
+</div>
+<br>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,127 @@
+.fieldset-auto-width {
+	display: inline-block;
+	border-radius: 10px;
+	max-width: 90%;
+	border-color: #0066CC; 
+}
+
+.fieldset-fixed-width {
+	display: inline-block;
+	border-radius: 10px;
+	max-width: 90%;
+	border-color: #0066CC;
+}
+
+.title-colour {
+	color: #0066CC;
+	font-size: 16px;
+}	
+
+.label {
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+	max-width: 20%;
+	color: #CC6600;
+}
+
+.tickets-label {
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+	color: #303030;
+}
+
+.info {
+	text-align: left;
+	font-weight: bold;
+	font-size: 14px;
+	max-width: 80%;
+	color: #303030;	
+}
+
+.inputField {
+	width: 300px;
+}
+
+.double-column {
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+	color: #303030;
+}
+
+.success-message {
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+	color: #009933;
+}
+
+.fail-message {
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+	color: #CC0000;
+}
+
+.email-footer {
+	text-align: center;
+	font-weight: normal;
+	font-size: 10px;
+	color: #0066CC;	
+}
+
+.404-text {
+	text-align: center;
+	font-weight: normal;
+	font-size: 16px;
+	color: #0066CC;	
+}
+	
+input:invalid {
+	border: 1px solid red;
+	border-radius: 6px;
+	box-shadow: 0px 0px 5px #FF0000;
+}
+
+input:valid {
+	border: 1px solid green;
+	border-radius: 6px;
+	box-shadow: 0px 0px 5px #00FF00;
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+	
+#map {
+	height: 100%;
+}
+
+#locationField, #controls {
+	position: relative;
+	width: 300px;
+}
+
+#autocomplete {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 99%;
+}
+
+#address td {
+	font-size: 10pt;
+}
+
+.field {
+	width: 99%;
+}
+
+#locationField {
+	height: 20px;
+	margin-bottom: 2px;
+}
